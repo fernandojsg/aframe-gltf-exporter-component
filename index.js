@@ -41,7 +41,7 @@ AFRAME.registerSystem('gltf-exporter', {
     this.download(new Blob([text], {type: 'application/json'}), filename);
   },
 
-  export: function ( input ) {
+  export: function ( input, options ) {
 
     var inputObject3D;
 
@@ -56,8 +56,6 @@ AFRAME.registerSystem('gltf-exporter', {
       inputObject3D = input.object3D;
     }
 
-    console.log(inputObject3D);
-
     var self = this;
     this.exporter.parse(inputObject3D, function (result) {
       var output = JSON.stringify(result, null, 2);
@@ -66,6 +64,6 @@ AFRAME.registerSystem('gltf-exporter', {
       }
 
       self.downloadJSON(output, 'scene.gltf');
-    });
+    }, options);
   },
 });

@@ -601,6 +601,7 @@ THREE.GLTFExporter.prototype = {
 			}
 
 			var geometry = mesh.geometry;
+			var mode;
 
 			// Use the correct mode
 			if ( mesh instanceof THREE.LineSegments ) {
@@ -765,7 +766,7 @@ THREE.GLTFExporter.prototype = {
 			if ( object instanceof THREE.Light ) {
 
 				console.warn( 'GLTFExporter: Unsupported node type:', object.constructor.name );
-				return null;
+				return false;
 
 			}
 
@@ -856,7 +857,7 @@ THREE.GLTFExporter.prototype = {
 
 						var node = processNode( child );
 
-						if ( node !== null ) {
+						if ( node !== false ) {
 
 							children.push( node );
 
@@ -918,7 +919,7 @@ THREE.GLTFExporter.prototype = {
 
 					var node = processNode( child );
 
-					if ( node !== null ) {
+					if ( node !== false ) {
 
 						nodes.push( node );
 
@@ -962,7 +963,7 @@ THREE.GLTFExporter.prototype = {
 			input = input instanceof Array ? input : [ input ];
 
 			var objectsWithoutScene = [];
-			for ( i = 0; i < input.length; i++ ) {
+			for ( var i = 0; i < input.length; i++ ) {
 
 				if ( input[ i ] instanceof THREE.Scene ) {
 
@@ -994,7 +995,7 @@ THREE.GLTFExporter.prototype = {
 		if ( outputJSON.buffers && outputJSON.buffers.length > 0 ) {
 
 			outputJSON.buffers[ 0 ].byteLength = blob.size;
-			objectURL = URL.createObjectURL( blob );
+			var objectURL = URL.createObjectURL( blob );
 
 			var reader = new window.FileReader();
 			 reader.readAsDataURL( blob );
