@@ -687,9 +687,9 @@ THREE.GLTFExporter.prototype = {
 
 			// @QUESTION Detect if .vertexColors = THREE.VertexColors?
 			// For every attribute create an accessor
-			for ( var attributeName in geometry.attributes ) {
+			for ( var attributeName in attributes ) {
 
-				var attribute = geometry.attributes[ attributeName ];
+				var attribute = attributes[ attributeName ];
 				attributeName = nameConversion[ attributeName ] || attributeName.toUpperCase();
 				gltfAttributes[ attributeName ] = processAccessor( attribute, geometry );
 
@@ -995,7 +995,6 @@ THREE.GLTFExporter.prototype = {
 		if ( outputJSON.buffers && outputJSON.buffers.length > 0 ) {
 
 			outputJSON.buffers[ 0 ].byteLength = blob.size;
-			var objectURL = URL.createObjectURL( blob );
 
 			var reader = new window.FileReader();
 			 reader.readAsDataURL( blob );
