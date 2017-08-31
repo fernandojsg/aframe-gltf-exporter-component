@@ -13,7 +13,7 @@ For [A-Frame](https://aframe.io).
 
 | Property | Description | Default Value |
 | -------- | ----------- | ------------- |
-|          |             |               |
+| verbose         | Log the glTF output to the console            | false              |
 
 ### Installation
 
@@ -30,10 +30,24 @@ Install and use by directly including the [browser files](dist):
 
 <body>
   <a-scene>
-    <a-entity gltf-exporter="foo: bar"></a-entity>
+    <a-entity gltf-exporter></a-entity>
   </a-scene>
 </body>
 ```
+
+Usage on your component:
+
+```javascript
+sceneEl.systems['gltf-exporter'].export(input, options);  
+```
+
+The function accepts severals different `input` values:
+* None (export the whole scene)
+* One entity
+* An array of entities
+* `NodeList` (eg: the result from a `querySelectorAll`)
+
+More information about the component and its options could be found on the [three.js GLTFExporter](https://threejs.org/docs/#examples/exporters/GLTFExporter)
 
 <!-- If component is accepted to the Registry, uncomment this. -->
 <!--
