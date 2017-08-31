@@ -1,5 +1,7 @@
 ## aframe-gltf-exporter-component
 
+> NOTE: This component requires the latest version of A-Frame (master) or 0.7.0 that will be released at the beginning of september.
+
 ![](https://github.com/fernandojsg/aframe-gltf-exporter-component/raw/master/examples/basic/basic.png)
 
 [![Version](http://img.shields.io/npm/v/aframe-gltf-exporter-component.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-exporter-component)
