@@ -1,6 +1,6 @@
 ## aframe-gltf-exporter-component
 
-![](https://raw.githubusercontent.com/fernandojsg/aframe-gltf-exporter-component/master/examples/basic/basic.png)
+![](https://github.com/fernandojsg/aframe-gltf-exporter-component/raw/master/examples/basic/basic.png)
 
 [![Version](http://img.shields.io/npm/v/aframe-gltf-exporter-component.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-exporter-component)
 [![License](http://img.shields.io/npm/l/aframe-gltf-exporter-component.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-exporter-component)
