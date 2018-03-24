@@ -37,6 +37,10 @@ AFRAME.registerSystem('gltf-exporter', {
     this.link.click();
   },
 
+  downloadBinary: function (value, filename) {
+    this.download(new Blob([value], {type: 'application/octet-stream'}), filename);
+  },
+
   downloadJSON: function (text, filename) {
     this.download(new Blob([text], {type: 'application/json'}), filename);
   },
@@ -58,12 +62,16 @@ AFRAME.registerSystem('gltf-exporter', {
 
     var self = this;
     this.exporter.parse(inputObject3D, function (result) {
-      var output = JSON.stringify(result, null, 2);
-      if (self.data.verbose) {
-        console.log(output);
+      if (options && options.binary === true) {
+        self.downloadBinary(result, 'scene.glb');
+      } else {
+        var output = JSON.stringify(result, null, 2);
+        if (self.data.verbose) {
+          console.log(output);
+        }
+  
+        self.downloadJSON(output, 'scene.gltf');
       }
-
-      self.downloadJSON(output, 'scene.gltf');
     }, options);
   },
 });

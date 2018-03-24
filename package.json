@@ -1,6 +1,6 @@
 {
   "name": "aframe-gltf-exporter-component",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A GLTF Exporter component for A-Frame.",
   "main": "index.js",
   "cdn": "dist/aframe-gltf-exporter-component.min.js",

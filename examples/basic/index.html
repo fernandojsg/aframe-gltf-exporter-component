@@ -40,6 +40,7 @@
   <body>
     <div id="container">
       <button id="export-scene" class="button"><span>Export Scene</span></button>
+      <button id="export-scene-bin" class="button"><span>Export Scene Binary</span></button>
       <button id="export-sphere" class="button"><span>Export Sphere</span></button>
       <button id="export-two" class="button"><span>Export Sphere and Box (Array)</span></button>
       <button id="export-selector" class="button"><span>Export boxes (Selector)</span></button>
@@ -98,16 +99,20 @@
     <!-- End GitHub Corner. -->
   </body>
   <script>
-    function exportGLTF (input) {
-      AFRAME.scenes[0].systems['gltf-exporter'].export(input);
+    function exportGLTF (input, options) {
+      AFRAME.scenes[0].systems['gltf-exporter'].export(input, options);
     }
 
     document.getElementById('export-scene').addEventListener('click', function () {
       exportGLTF();
     });
 
+    document.getElementById('export-scene-bin').addEventListener('click', function () {
+      exportGLTF(undefined, {binary: true});
+    });
+
     document.getElementById('export-sphere').addEventListener('click', function () {
-      exportGLTF(document.getElementById('yellowSphere'));
+      exportGLTF(document.getElementById('yellowSphere'), {binary: true});
     });
 
     document.getElementById('export-two').addEventListener('click', function () {
